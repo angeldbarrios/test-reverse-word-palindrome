@@ -1,5 +1,7 @@
-const assert = require('chai').assert;
+const chai = require('chai');
+const { assert, expect } = chai;
 const getReverseUseCase = require('../../use-cases/getReverseTextUseCase');
+chai.use(require('chai-as-promised'));
 
 describe('getReverseUseCase', () => {
   it('should reverse word and say it is not palindrome', async () => {
@@ -15,7 +17,7 @@ describe('getReverseUseCase', () => {
   it('should reverse word and say it is palindrome', async () => {
     const word = 'radar';
     const wordResult = await getReverseUseCase(word);
-    
+
     assert.deepEqual(wordResult, {
       palindrome: true,
       text: 'radar'
@@ -38,10 +40,19 @@ describe('getReverseUseCase', () => {
   it('should reverse text differents type of chars', async () => {
     const word = 'Eva, can I see bees in a cave?';
     const wordResult = await getReverseUseCase(word);
-    
+
     assert.deepEqual(wordResult, {
       palindrome: true,
       text: '?evac a ni seeb ees I nac ,avE'
     });
   });
+
+  it('should throw exception', async () => {
+    const word = 123;
+    await expect(getReverseUseCase(word))
+      .to
+      .be
+      .rejected
+  });
+
 });
