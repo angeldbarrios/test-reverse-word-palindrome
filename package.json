@@ -1,0 +1,27 @@
+{
+  "name": "test-work1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha 'tests/**/*.js' --recursive",
+    "start": "nodemon index.js",
+    "lint": "standard",
+    "lint:fix": "standard --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "nodemon": "^2.0.7",
+    "standard": "^16.0.3",
+    "supertest": "^6.1.3"
+  }
+}
