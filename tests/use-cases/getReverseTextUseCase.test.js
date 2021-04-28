@@ -1,5 +1,5 @@
 const chai = require('chai');
-const { assert, expect } = chai;
+const { assert } = chai;
 const getReverseUseCase = require('../../use-cases/getReverseTextUseCase');
 chai.use(require('chai-as-promised'));
 
@@ -49,10 +49,9 @@ describe('getReverseUseCase', () => {
 
   it('should throw exception', async () => {
     const word = 123;
-    await expect(getReverseUseCase(word))
-      .to
-      .be
-      .rejected
+    await assert.isRejected(
+      getReverseUseCase(word)
+    );
   });
 
 });
